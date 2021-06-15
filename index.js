@@ -46,14 +46,15 @@ const createSpotify = (email, password) => new Promise((resolve, reject) => {
 
     try {
 
-        console.log(`
-███████╗██████╗  ██████╗ ████████╗██╗███████╗██╗   ██╗        ████████╗ ██████╗  ██████╗ ██╗     
-██╔════╝██╔══██╗██╔═══██╗╚══██╔══╝██║██╔════╝╚██╗ ██╔╝        ╚══██╔══╝██╔═══██╗██╔═══██╗██║     
-███████╗██████╔╝██║   ██║   ██║   ██║█████╗   ╚████╔╝            ██║   ██║   ██║██║   ██║██║     
-╚════██║██╔═══╝ ██║   ██║   ██║   ██║██╔══╝    ╚██╔╝             ██║   ██║   ██║██║   ██║██║     
-███████║██║     ╚██████╔╝   ██║   ██║██║        ██║              ██║   ╚██████╔╝╚██████╔╝███████╗
-╚══════╝╚═╝      ╚═════╝    ╚═╝   ╚═╝╚═╝        ╚═╝              ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
-                                                                                                  
+        console.log(`|-------------------------------------------------------------------------|
+|                       Tools Spotify Creator                             |
+|-------------------------------------------------------------------------|
+|                 Ari Maulana Firmansyah ( AMFCODE)                       |
+|-------------------------------------------------------------------------|
+|              Github : github.com/arimaulanafirmansyah                   |
+|-------------------------------------------------------------------------|
+
+
 1. Create Spotify Account
 2. Mass Create Spotify Account ( Random email )
 `);
@@ -85,15 +86,15 @@ const createSpotify = (email, password) => new Promise((resolve, reject) => {
 
         while (true) {
 
-            var email = `${randStr(10)}@gmailup.com`; // ganti domain ? bebas
-            var password = 'default123'; // ganti password disini
+            var email = `amfcode-${randStr(4)}@gmail.com`; // ganti domain ? bebas
+            var password = 'amfcode123'; // ganti password disini
 
             const resultCreateSpotify = await createSpotify(email, password);
             const username = resultCreateSpotify.username;
             const token = resultCreateSpotify.login_token;
             
             if (username && token) {
-                console.log(chalk.green(`Berhasil Register | ${email} | ${password}`));
+                console.log(chalk.green(`Success | ${email} | ${password}`));
                 fs.appendFileSync('result.txt', `${email} | ${password}\n`);
                 fs.appendFileSync('token.txt', `${token}\n`)
             } else if (!username && !token) {
